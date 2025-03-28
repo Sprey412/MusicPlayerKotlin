@@ -1,100 +1,153 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginTop="50dp"
+    android:padding="16dp"
     tools:context="org.example.musicplayerkotlin.MainActivity">
+
+    <!-- Заголовок плеера -->
     <TextView
         android:id="@+id/text_view_25"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Player"
+        android:text="Music Player"
+        android:textSize="24sp"
+        android:textStyle="bold"
         android:layout_alignParentTop="true"
-        android:textSize="20sp"
-        android:layout_centerHorizontal="true"
+        android:layout_centerHorizontal="true"/>
 
-        />
+    <!-- SeekBar воспроизведения -->
     <SeekBar
         android:id="@+id/seek_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/text_view_3"
-        android:layout_below="@+id/text_view_25"
-        />
+        android:layout_below="@id/text_view_25"
+        android:layout_marginTop="16dp"/>
+
+    <!-- Название трека -->
     <TextView
         android:id="@+id/text_view_4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Song Title"
-        android:layout_marginTop="20dp"
-        android:layout_below="@id/seek_bar"
         android:textSize="20sp"
-        android:layout_centerHorizontal="true"
-        />
+        android:layout_below="@id/seek_bar"
+        android:layout_marginTop="16dp"
+        android:layout_centerHorizontal="true"/>
+
+    <!-- Таймер воспроизведения -->
     <TextView
         android:id="@+id/text_view_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Timer"
-        android:layout_marginTop="20dp"
+        android:text="00 min, 00 sec"
+        android:textSize="18sp"
         android:layout_below="@id/text_view_4"
-        android:textSize="20sp"
-        android:layout_centerHorizontal="true"
-        />
+        android:layout_marginTop="8dp"
+        android:layout_centerHorizontal="true"/>
+
+    <!-- Длительность трека -->
     <TextView
         android:id="@+id/text_view_3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Duration"
-        android:layout_marginTop="20dp"
-        android:layout_below="@id/seek_bar"
-        android:layout_alignParentRight="true"
+        android:textSize="18sp"
         android:layout_alignParentEnd="true"
-        android:textSize="20sp"
-        android:layout_centerHorizontal="true"
-        />
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@id/text_view_2"/>
 
+    <!-- Кнопки управления (Play, Pause, Forward, Rewind) -->
     <Button
         android:id="@+id/button"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:text="Play"
-        android:layout_marginLeft="10dp"
-        android:layout_below="@+id/text_view_2"
-        />
+        android:layout_below="@id/text_view_2"
+        android:layout_marginTop="16dp"
+        android:layout_alignParentStart="true"/>
+
     <Button
         android:id="@+id/button2"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:text="Pause"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_below="@+id/text_view_2"
-        android:layout_alignTop="@+id/button"
-        android:layout_toRightOf="@id/text_view_25"
-        android:layout_toEndOf="@id/text_view_25"
-        />
+        android:layout_below="@id/text_view_2"
+        android:layout_marginTop="16dp"
+        android:layout_centerHorizontal="true"/>
+
     <Button
         android:id="@+id/button3"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:text="Forward"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_below    ="@+id/button"
-        android:layout_alignLeft="@+id/button"
-        />
+        android:layout_below="@id/button"
+        android:layout_marginTop="16dp"
+        android:layout_alignStart="@id/button"/>
+
     <Button
         android:id="@+id/button4"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:text="Reverse"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_below    ="@+id/button2"
-        android:layout_alignLeft="@+id/button2"
-        />
+        android:text="Rewind"
+        android:layout_below="@id/button2"
+        android:layout_marginTop="16dp"
+        android:layout_alignStart="@id/button2"/>
+
+    <!-- Новые кнопки: Previous, Next, Repeat -->
+    <Button
+        android:id="@+id/button_prev"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="Previous"
+        android:layout_below="@id/button4"
+        android:layout_marginTop="16dp"
+        android:layout_alignParentStart="true"/>
+
+    <Button
+        android:id="@+id/button_next"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="Next"
+        android:layout_below="@id/button4"
+        android:layout_marginTop="16dp"
+        android:layout_centerHorizontal="true"/>
+
+    <Button
+        android:id="@+id/button_repeat"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="Repeat: Off"
+        android:layout_below="@id/button4"
+        android:layout_marginTop="16dp"
+        android:layout_alignParentEnd="true"/>
+
+    <!-- SeekBar для регулировки громкости -->
+    <SeekBar
+        android:id="@+id/seekBar_volume"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/button_prev"
+        android:layout_marginTop="16dp"/>
+
+    <!-- Кнопка для загрузки локальных треков -->
+    <Button
+        android:id="@+id/button_load_local"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Load Local Tracks"
+        android:layout_below="@id/seekBar_volume"
+        android:layout_marginTop="16dp"
+        android:layout_centerHorizontal="true"/>
+
+    <!-- ListView для отображения списка локальных треков -->
+    <ListView
+        android:id="@+id/list_view_tracks"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/button_load_local"
+        android:layout_marginTop="16dp"/>
+
 </RelativeLayout>
