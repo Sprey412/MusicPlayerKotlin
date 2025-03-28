@@ -1,153 +1,164 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="#121212"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
-    tools:context="org.example.musicplayerkotlin.MainActivity">
+    tools:context=".MainActivity">
 
-    <!-- Заголовок плеера -->
-    <TextView
-        android:id="@+id/text_view_25"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Music Player"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"/>
-
-    <!-- SeekBar воспроизведения -->
-    <SeekBar
-        android:id="@+id/seek_bar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/text_view_25"
-        android:layout_marginTop="16dp"/>
+    <!-- Обложка трека -->
+    <ImageView
+        android:id="@+id/iv_cover"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/placeholder_cover"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="32dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <!-- Название трека -->
     <TextView
-        android:id="@+id/text_view_4"
-        android:layout_width="wrap_content"
+        android:id="@+id/tv_title"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Song Title"
+        android:text="Track Title"
+        android:textColor="#FFFFFF"
         android:textSize="20sp"
-        android:layout_below="@id/seek_bar"
-        android:layout_marginTop="16dp"
-        android:layout_centerHorizontal="true"/>
-
-    <!-- Таймер воспроизведения -->
-    <TextView
-        android:id="@+id/text_view_2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="00 min, 00 sec"
-        android:textSize="18sp"
-        android:layout_below="@id/text_view_4"
-        android:layout_marginTop="8dp"
-        android:layout_centerHorizontal="true"/>
-
-    <!-- Длительность трека -->
-    <TextView
-        android:id="@+id/text_view_3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Duration"
-        android:textSize="18sp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignTop="@id/text_view_2"/>
-
-    <!-- Кнопки управления (Play, Pause, Forward, Rewind) -->
-    <Button
-        android:id="@+id/button"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:text="Play"
-        android:layout_below="@id/text_view_2"
-        android:layout_marginTop="16dp"
-        android:layout_alignParentStart="true"/>
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:text="Pause"
-        android:layout_below="@id/text_view_2"
-        android:layout_marginTop="16dp"
-        android:layout_centerHorizontal="true"/>
-
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:text="Forward"
-        android:layout_below="@id/button"
-        android:layout_marginTop="16dp"
-        android:layout_alignStart="@id/button"/>
-
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:text="Rewind"
-        android:layout_below="@id/button2"
-        android:layout_marginTop="16dp"
-        android:layout_alignStart="@id/button2"/>
-
-    <!-- Новые кнопки: Previous, Next, Repeat -->
-    <Button
-        android:id="@+id/button_prev"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:text="Previous"
-        android:layout_below="@id/button4"
-        android:layout_marginTop="16dp"
-        android:layout_alignParentStart="true"/>
-
-    <Button
-        android:id="@+id/button_next"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:text="Next"
-        android:layout_below="@id/button4"
-        android:layout_marginTop="16dp"
-        android:layout_centerHorizontal="true"/>
-
-    <Button
-        android:id="@+id/button_repeat"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:text="Repeat: Off"
-        android:layout_below="@id/button4"
-        android:layout_marginTop="16dp"
-        android:layout_alignParentEnd="true"/>
-
-    <!-- SeekBar для регулировки громкости -->
-    <SeekBar
-        android:id="@+id/seekBar_volume"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/button_prev"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/iv_cover"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="16dp"/>
 
-    <!-- Кнопка для загрузки локальных треков -->
+    <!-- Исполнитель -->
+    <TextView
+        android:id="@+id/tv_artist"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Artist"
+        android:textColor="#B3B3B3"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/tv_title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp"/>
+
+    <!-- SeekBar для прогресса воспроизведения -->
+    <SeekBar
+        android:id="@+id/sb_progress"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tv_artist"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="24dp"/>
+
+    <!-- Метки времени -->
+    <TextView
+        android:id="@+id/tv_current_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0:00"
+        android:textColor="#FFFFFF"
+        app:layout_constraintTop_toBottomOf="@id/sb_progress"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="8dp"/>
+
+    <TextView
+        android:id="@+id/tv_duration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0:00"
+        android:textColor="#FFFFFF"
+        app:layout_constraintTop_toBottomOf="@id/sb_progress"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp"/>
+
+    <!-- Ряд кнопок управления воспроизведением -->
+    <!-- Кнопка Повтора -->
     <Button
-        android:id="@+id/button_load_local"
+        android:id="@+id/btn_repeat"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:backgroundTint="@android:color/transparent"
+        android:text="🔁"
+        android:textSize="24sp"
+        android:textColor="#FFFFFF"
+        app:layout_constraintTop_toBottomOf="@id/tv_duration"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="24dp"
+        android:layout_marginStart="16dp"/>
+
+    <!-- Кнопка Предыдущий -->
+    <Button
+        android:id="@+id/btn_prev"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:backgroundTint="@android:color/transparent"
+        android:text="⏮"
+        android:textSize="24sp"
+        android:textColor="#FFFFFF"
+        app:layout_constraintTop_toBottomOf="@id/tv_duration"
+        app:layout_constraintStart_toEndOf="@id/btn_repeat"
+        android:layout_marginTop="24dp"
+        android:layout_marginStart="8dp"/>
+
+    <!-- Кнопка Play/Pause -->
+    <Button
+        android:id="@+id/btn_play_pause"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:backgroundTint="@android:color/transparent"
+        android:text="▶"
+        android:textSize="32sp"
+        android:textColor="#FFFFFF"
+        app:layout_constraintTop_toBottomOf="@id/tv_duration"
+        app:layout_constraintStart_toEndOf="@id/btn_prev"
+        app:layout_constraintEnd_toStartOf="@id/btn_next"
+        android:layout_marginTop="16dp"
+        app:layout_constraintHorizontal_bias="0.5"/>
+
+    <!-- Кнопка Следующий -->
+    <Button
+        android:id="@+id/btn_next"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:backgroundTint="@android:color/transparent"
+        android:text="⏭"
+        android:textSize="24sp"
+        android:textColor="#FFFFFF"
+        app:layout_constraintTop_toBottomOf="@id/tv_duration"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"/>
+
+    <!-- Кнопка загрузки локальных треков -->
+    <Button
+        android:id="@+id/btn_load_local"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Load Local Tracks"
-        android:layout_below="@id/seekBar_volume"
-        android:layout_marginTop="16dp"
-        android:layout_centerHorizontal="true"/>
-
-    <!-- ListView для отображения списка локальных треков -->
-    <ListView
-        android:id="@+id/list_view_tracks"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/button_load_local"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="@android:color/transparent"
+        app:layout_constraintTop_toBottomOf="@id/btn_play_pause"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="16dp"/>
 
-</RelativeLayout>
+    <!-- Список треков (плейлист) -->
+    <ListView
+        android:id="@+id/lv_tracks"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#2C2C2C"
+        app:layout_constraintTop_toBottomOf="@id/btn_load_local"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="16dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
